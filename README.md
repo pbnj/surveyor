@@ -1,8 +1,12 @@
 # surveyor
 
-A CLI utility for rich, interactive terminal prompts.
+A Command-Line Interface (CLI) utility for interactive terminal prompts.
 
 Inspired by [enquirer](https://github.com/termapps/enquirer).
+
+**Disclaimer**: This is still under development and not ready for production.
+See [critical bug](https://github.com/pbnj/surveyor/issues/1) that defeats the
+whole premise of this project.
 
 ## Table of Contents
 
@@ -35,22 +39,66 @@ _Coming soon..._
 ```sh
 
 NAME:
-   surveyor - A CLI utility for rich, interactive terminal prompts
+   surveyor - A Command-Line Interface (CLI) utility for interactive terminal prompts
 
 USAGE:
-   surveyor [global options] command [command options] [arguments...]
+   main [global options] command [command options] [arguments...]
 
 COMMANDS:
-   input
-   multiline
-   password
-   confirm
-   select
-   multiselect
+   input        Prompt user for text input
+   multiline    Prompt user for multiline text input
+   password     Prompt user for password input
+   confirm      Prompt user for confirmation
+   select       Prompt user for single-choice selection
+   multiselect  Prompt user for multi-choice selection
    help, h      Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
    --help, -h  show help (default: false)
+
+```
+
+## Example
+
+```sh
+
+```
+
+### Input
+
+```sh
+GH_USER=$(surveyor input --message "What is your GitHub username:")
+
+curl https://api.github.com/users/${GH_USER}
+```
+
+### Multiline
+
+```sh
+
+```
+
+### Password
+
+```sh
+
+```
+
+### Confirm
+
+```sh
+
+```
+
+### select
+
+```sh
+
+```
+
+### multiselect
+
+```sh
 
 ```
 
@@ -59,6 +107,13 @@ GLOBAL OPTIONS:
 Any and all contributions are welcome!
 
 For bugs, suggestions, or enhancements, please submit an issue.
+
+## Special Thanks
+
+Thank you to authors and maintainers of:
+
+- [AlecAivazis/survey](https://github.com/AlecAivazis/survey)
+- [urfave/cli](https://github.com/urfave/cli)
 
 ## License
 
