@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/AlecAivazis/survey/v2"
+	"github.com/AlecAivazis/survey/v2/terminal"
 	"github.com/urfave/cli/v2"
 )
 
@@ -29,7 +30,13 @@ func main() {
 					prompt := &survey.Input{
 						Message: c.String("message"),
 					}
-					survey.AskOne(prompt, &answer)
+					err := survey.AskOne(prompt, &answer)
+					if err == terminal.InterruptErr {
+						fmt.Println("interrupted")
+						os.Exit(1)
+					} else if err != nil {
+						panic(err)
+					}
 					fmt.Println(answer)
 					return nil
 				},
